@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Toronto Raptors Merchandise Store</title>
+        <link rel="stylesheet" type="text/css" href="css/form.css">
+        <link rel="icon" href="1200px-Toronto_Raptors_logo.svg.png">
+        <script src="js/form.js"></script>
+    </head>
+    
+    <body>
+        <form method="Post" onsubmit="return formSubmit();" action="">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="First Last" name="name"><br>
+            
+            <label for="address">Address</label>
+            <input id="address" type="text" name="address"><br>
+            
+            <label for="city">City</label>
+            <input id="city" type="text" name="city"><br>
+            
+            <label>Province</label>
+            <select id="province" name="province">
+                <option value="">---- Select -----</option>
+                <option value="AB">Alberta</option>
+                <option value="BC">British Columbia</option>
+                <option value="MB">Manitoba</option>
+                <option value="NB">New-Brunswick</option>
+                <option value="NL">Newfoundland and Labrador</option>
+                <option value="NT">Northwest Territories</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="NU">Nunavut</option>
+                <option value="ON">Ontario</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="QC">Quebec</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="YT">Yukon</option>
+            </select>
+            
+            <label for="postCode">Post Code</label>
+            <input id="postCode" type="postcode" placeholder="A1B 2C3" name="postCode"><br>
+            
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="email@domain.com" name="email"><br>
+
+            <label for="phone">Phone</label>
+            <input id="phone" type="text" name="phone"><br>
+            
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password"><br>
+            
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" type="password" name="confirmPassword"><br>
+            
+            <div class="merch">
+                <fieldset>
+                    <legend>Toronto Raptors Jersey</legend>
+                    <label>Quantity</label>
+                    <select id="jersey" name="jersey">
+                        <option value="0">---- Select ----</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select><br>
+                    <label>*Only a maximum of two jerseys is available for each order!</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>NBA 2019 Championship Hat</legend>
+                    <label>Quantity</label>
+                    <select id="hat" name="hat">
+                        <option value="0">---- Select ----</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select><br>
+                    <label>*Only a maximum of three hats is available for each order!</label>
+                </fieldset>
+            </div>
+            
+            <label for="cardNumber">Credit Card Number</label>
+            <input id="cardNumber" type="text" placeholder="xxxx-xxxx-xxxx-xxxx" name="cardNumber"><br>
+            
+            <label for="comment" class="comment">Comment</label>
+            <textarea id="comment" rows="5" name="comment"></textarea>
+            
+            <div class="submit">
+                <input type="submit" value="Submit Order">
+            </div>
+            
+            <p id="errors"></p>
+        </form>
+        
+        <div class="receipt">
+            <%
+                if(typeof(errors) != 'undefined'){
+                for(var error of errors){
+                %>
+                    <p class="errors"><%= error.msg %></p>
+                <%
+                    }
+                }
+                %>
+            <%
+                if(typeof(total) != 'undefined'){
+                %>
+                <p id="formResult">----------------------------Your Receipt---------------------------</p>
+                <table>
+                    <tr>
+                    <th>Name: </th>
+                    <td><%= name %></td>
+                    </tr>
+                    <tr>
+                    <th>Address: </th>
+                    <td><%= address %></td>
+                    </tr>
+                    <tr>
+                    <th>City: </th>
+                    <td><%= city %></td>
+                    </tr>
+                    <tr>
+                    <th>Province: </th>
+                    <td><%= province %></td>
+                    </tr>
+                    <tr>
+                    <th>Post Code: </th>
+                    <td><%= postCode %></td>
+                    </tr>
+                    <tr>
+                    <th>Email: </th>
+                    <td><%= email %></td>
+                    </tr>
+                    <tr>
+                    <th>Phone: </th>
+                    <td><%= phone %></td>
+                    </tr>
+                    <tr>
+                    <th>Number of Jersey Ordered: </th>
+                    <td><%= jersey %></td>
+                    </tr>
+                    <tr>
+                    <th>Number of Hat Ordered: </th>
+                    <td><%= hat %></td>
+                    </tr>
+                    <tr>
+                    <th>Price pre-tax: </th>
+                    <td>$<%= subtotal.toFixed(2) %></td>
+                    </tr>
+                    <tr>
+                    <th>Total after tax: </th>
+                    <td>$<%= total.toFixed(2) %></td>
+                    </tr>
+                </table>
+                <%
+                }
+            %>            
+        </div>
+    </body>
+</html>
