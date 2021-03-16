@@ -1,0 +1,21 @@
+{
+  "name": "as3",
+  "version": "1.0.0",
+  "description": "Raptor's Merchandise Store",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ejs": "*",
+    "body-parser": "*",
+    "express-validator": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Raptor",
+    "Merchandise"
+  ],
+  "author": "Jiarui He",
+  "license": "ISC"
+}
