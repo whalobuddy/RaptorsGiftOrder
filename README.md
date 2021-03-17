@@ -7,3 +7,4 @@ To celebrate Toronto Raptors' 2019 NBA championship, a webpage is built for cons
 3. Run "npm install" to install packages and dependencies
 4. Run "node index.js" to start the application
 5. Go to "localhost:8080" in your browser to access the webpage
+6. Ctrl C to kill the local server when finished
